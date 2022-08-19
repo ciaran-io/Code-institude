@@ -64,9 +64,11 @@ h6 {
   /* colors */
   --gray-400: hsl(0, 0%, 15%);
   --gray-500: hsl(0, 0%, 23%);
+  --brown-700-opac-8: hsla(36, 92%, 42%, 0.8);
 
   /* spacing */
   --letter-spacing-base: 4px;
+  --border-sm: 5px;
 }
 
 body {
@@ -80,9 +82,7 @@ body {
 h1,
 h2 {
   font-family: Oswald, sans-serif;
-  text-transform: capitalize;
   color: var(--gray-500);
-  letter-spacing: var(--letter-spacing-base);
 }
 
 #logo {
@@ -94,6 +94,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-transform: capitalize;
 }
 
 nav ul {
@@ -116,6 +117,7 @@ nav li a:hover {
 
 /* hero image */
 #hero-image-container {
+  position: relative;
   overflow: hidden;
 }
 
@@ -126,6 +128,23 @@ nav li a:hover {
   /* animation zoom effect on loading page */
   animation: hero-zoom 5s;
   animation-fill-mode: forwards;
+}
+
+#hero-text {
+  position: absolute;
+  bottom: 30px;
+  right: 150px;
+  padding: 2rem 1rem;
+  width: 300px;
+  height: 200px;
+  border-radius: var(--border-sm);
+  background-color: var(--brown-700-opac-8);
+}
+
+#hero-text h2 {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  color: white;
 }
 
 /*
