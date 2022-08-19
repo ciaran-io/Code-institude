@@ -190,6 +190,7 @@ nav li a:hover {
 #club-ethos h3 {
   font-size: 1.75rem;
   text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-base);
   border-bottom: 2px solid var(--gray-500);
 }
 
