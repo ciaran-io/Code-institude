@@ -11,7 +11,6 @@
   box-sizing: border-box;
   border-width: 0;
   border-style: solid;
-  border-color: theme("borderColor.DEFAULT", currentColor);
 }
 
 /* Reset links to optimize for opt-in styling instead of opt-out.*/
@@ -64,6 +63,7 @@ h6 {
   /* colors */
   --gray-400: hsl(0, 0%, 15%);
   --gray-500: hsl(0, 0%, 23%);
+  --gray-300-opac-5: hsla(0, 2%, 73%, 0.5);
   --brown-700-opac-8: hsla(36, 92%, 42%, 0.8);
 
   /* spacing */
@@ -81,7 +81,11 @@ body {
 
 /* headings & logo */
 h1,
-h2 {
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: Oswald, sans-serif;
   color: var(--gray-500);
 }
@@ -153,23 +157,44 @@ nav li a:hover {
 #club-ethos {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: min-content 1fr;
+  row-gap: 6rem;
   margin: 1rem auto;
   padding: 0 1rem;
-  width: 100%;
   height: var(--section-height);
 }
 
-#club-ethos h1 {
-  grid-column: 1 / 4;
-  font-size: 2rem;
-  text-align: center;
+#club-ethos > div:not(:nth-child(3)) {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#club-ethos > div:nth-child(3) {
+  place-self: center;
+  border: 1px solid var(--gray-300-opac-5);
+  padding: 1.5rem;
+  border-radius: 50%;
+}
+
+#club-ethos > div:last-of-type h3 {
+  text-align: right;
 }
 
 #club-ethos h2 {
+  grid-column: 1 / 4;
+  font-size: 3rem;
+  text-align: center;
+}
+
+#club-ethos h3 {
   font-size: 1.75rem;
   text-transform: uppercase;
   border-bottom: 2px solid var(--gray-500);
+}
+
+#club-ethos img {
+  border-radius: 50%;
 }
 
 /*
