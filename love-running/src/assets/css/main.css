@@ -91,8 +91,6 @@ h2 {
 
 /* header navigation */
 nav {
-  position: relative;
-  z-index: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -117,11 +115,30 @@ nav li a:hover {
 }
 
 /* hero image */
+#hero-image-container {
+  overflow: hidden;
+}
+
 #hero-image {
-  position: absolute;
-  top: 0;
-  left: 0;
   height: 600px;
   width: 100%;
   background: url("../images/hero-image.webp") no-repeat center center;
+  /* animation zoom effect on loading page */
+  animation: hero-zoom 5s;
+  animation-fill-mode: forwards;
+}
+
+/*
+  **************************
+  Animation styles 
+  ************************** */
+
+/* create the level zoom for hero image */
+@keyframes hero-zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
 }
