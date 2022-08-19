@@ -69,6 +69,7 @@ h6 {
   /* spacing */
   --letter-spacing-base: 4px;
   --border-sm: 5px;
+  --section-height: 600px;
 }
 
 body {
@@ -95,6 +96,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   text-transform: capitalize;
+  margin: 1rem;
 }
 
 nav ul {
@@ -122,7 +124,7 @@ nav li a:hover {
 }
 
 #hero-image {
-  height: 600px;
+  height: var(--section-height);
   width: 100%;
   background: url("../images/hero-image.webp") no-repeat center center;
   /* animation zoom effect on loading page */
@@ -145,6 +147,29 @@ nav li a:hover {
   font-size: 1.8rem;
   text-transform: uppercase;
   color: white;
+}
+
+/* club-ethos  */
+#club-ethos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  margin: 1rem auto;
+  padding: 0 1rem;
+  width: 100%;
+  height: var(--section-height);
+}
+
+#club-ethos h1 {
+  grid-column: 1 / 4;
+  font-size: 2rem;
+  text-align: center;
+}
+
+#club-ethos h2 {
+  font-size: 1.75rem;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--gray-500);
 }
 
 /*
