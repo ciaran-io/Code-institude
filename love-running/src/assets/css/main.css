@@ -2,47 +2,114 @@
 
 /*
   **************************
+  Base reset  styles
+  ************************** */
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: theme("borderColor.DEFAULT", currentColor);
+}
+
+/* Reset links to optimize for opt-in styling instead of opt-out.*/
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/* Removes the default spacing and border for appropriate elements */
+ol,
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+/* Remove the default font size and weight for headings. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*
+  **************************
   Base styles 
   ************************** */
 
-/* resets */
+:root {
+  /* colors */
+  --gray-400: hsl(0, 0%, 15%);
+  --gray-500: hsl(0, 0%, 23%);
 
-* {
-  margin: 0;
-  padding: 0;
-  border: none;
+  /* spacing */
+  --letter-spacing-base: 4px;
 }
 
-/* html {
-  font-size: 62.5%;
-} */
-
 body {
+  margin: 0;
   font-family: Lato, sans-serif;
   font-weight: 300;
-  color: #3a3a3a;
+  color: var(--gray-500);
 }
 
 /* headings & logo */
-
 h1,
 h2 {
   font-family: Oswald, sans-serif;
   text-transform: capitalize;
-  letter-spacing: 4px;
-  color: #252525;
+  color: var(--gray-500);
+  letter-spacing: var(--letter-spacing-base);
 }
 
 #logo {
   font-size: 2.2rem;
 }
 
+/* header navigation */
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+nav ul {
+  font-size: 1.2rem;
+  letter-spacing: var(--letter-spacing-base);
+}
+
 nav ul li {
   display: inline-block;
+  padding: 0 0.5rem; /* { Top, Bottom 0px  Left,right  8px} */
+}
+
+nav li a:hover {
+  border-bottom: 1px solid var(--gray-500);
+}
+
+.active {
+  border-bottom: 1px solid var(--gray-500);
 }
