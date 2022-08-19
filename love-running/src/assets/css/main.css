@@ -241,6 +241,26 @@ main > section {
   font-size: 1.1rem;
   text-transform: capitalize;
 }
+
+/* footer */
+footer {
+  height: 250px;
+  margin-top: 50px;
+  display: grid;
+  place-items: center;
+}
+
+footer ul {
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+}
+
+footer i {
+  font-size: 2rem;
+  color: var(--gray-500);
+}
+
 /*
   **************************
   Animation styles 
