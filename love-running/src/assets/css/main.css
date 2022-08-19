@@ -261,6 +261,23 @@ footer i {
   color: var(--gray-500);
 }
 
+/* masonry gallery */
+#masonry-gallery {
+  column-count: 2;
+  column-gap: 1rem;
+  line-height: 2rem;
+}
+
+#masonry-gallery > img {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  #masonry-gallery {
+    column-count: 3;
+  }
+}
+
 /*
   **************************
   Animation styles 
