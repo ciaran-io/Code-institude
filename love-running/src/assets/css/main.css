@@ -70,6 +70,8 @@ h6 {
   --letter-spacing-base: 4px;
   --border-sm: 5px;
   --section-height: 600px;
+  --section-padding: 0 1rem;
+  --section-margin-top: 3.5rem;
 }
 
 body {
@@ -121,6 +123,15 @@ nav li a:hover {
   border-bottom: 1px solid var(--gray-500);
 }
 
+main {
+  margin: 0 auto;
+  padding: 0 1.75rem;
+}
+
+main > section {
+  margin-top: var(--section-margin-top);
+}
+
 /* hero image */
 #hero-image-container {
   position: relative;
@@ -159,8 +170,6 @@ nav li a:hover {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: min-content 1fr;
   row-gap: 6rem;
-  margin: 1rem auto;
-  padding: 0 1rem;
   height: var(--section-height);
 }
 
@@ -198,6 +207,40 @@ nav li a:hover {
   border-radius: 50%;
 }
 
+/* meetup times */
+#times {
+  display: grid;
+  grid-auto-flow: column;
+  height: 450px;
+  width: 100%;
+  background: #ffff url("../images/dublin-city.webp") no-repeat center center;
+  background-size: cover;
+  text-align: center;
+}
+
+#times div {
+  background-color: hsl(0, 0%, 15%, 0.6);
+}
+
+#times div:not(:last-child) {
+  border-right: 10px solid white;
+}
+
+#times h2,
+#times h3 {
+  color: white;
+}
+
+#times h2 {
+  padding: 1.5rem 0;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+#times h3 {
+  font-size: 1.1rem;
+  text-transform: capitalize;
+}
 /*
   **************************
   Animation styles 
