@@ -4,7 +4,10 @@
   **************************
   Base reset  styles
   ************************** */
-
+html,
+body {
+  height: 100%;
+}
 *,
 ::before,
 ::after {
@@ -71,10 +74,17 @@ h6 {
   --border-sm: 5px;
   --section-height: 600px;
   --section-padding: 0 1rem;
-  --section-margin-top: 3.5rem;
+  --section-margin-top: 8.5rem;
+  --screen-sm: 640px;
+  --screen-md: 768px;
+  --screen-lg: 1024px;
+  --screen-xl: 1280px;
+  -screen-2xl: 1536px;
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   margin: 0;
   font-family: Lato, sans-serif;
   font-weight: 300;
@@ -92,8 +102,23 @@ h6 {
   color: var(--gray-500);
 }
 
-#logo {
-  font-size: 2.2rem;
+/* Html elements */
+
+main {
+  margin-bottom: 6rem;
+}
+
+main > section:not(:first-child) {
+  margin-top: var(--section-margin-top);
+  padding: 0 1.75rem;
+}
+
+header,
+main,
+footer {
+  max-width: var(--screen-xl);
+  margin-inline: auto;
+  width: 100%;
 }
 
 /* header navigation */
@@ -123,13 +148,8 @@ nav li a:hover {
   border-bottom: 1px solid var(--gray-500);
 }
 
-main {
-  margin: 0 auto;
-  padding: 0 1.75rem;
-}
-
-main > section {
-  margin-top: var(--section-margin-top);
+#logo {
+  font-size: 2.2rem;
 }
 
 /* hero image */
@@ -150,7 +170,7 @@ main > section {
 #hero-text {
   position: absolute;
   bottom: 30px;
-  right: 150px;
+  right: 30px;
   padding: 2rem 1rem;
   width: 300px;
   height: 200px;
@@ -165,35 +185,24 @@ main > section {
 }
 
 /* club-ethos  */
-#club-ethos {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: min-content 1fr;
-  row-gap: 6rem;
-  height: var(--section-height);
-}
 
-#club-ethos > div:not(:nth-child(3)) {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+/* 1st and second div child; second child */
+#club-ethos > div:not(:nth-child(3)) > div:nth-child(2) {
+  margin-top: 6rem;
 }
 
 #club-ethos > div:nth-child(3) {
-  place-self: center;
+  margin: 4rem 0;
+
+  padding: 0.8rem;
   border: 1px solid var(--gray-300-opac-5);
-  padding: 1.5rem;
   border-radius: 50%;
 }
 
-#club-ethos > div:last-of-type h3 {
-  text-align: right;
-}
-
 #club-ethos h2 {
-  grid-column: 1 / 4;
   font-size: 3rem;
   text-align: center;
+  margin-bottom: 4rem;
 }
 
 #club-ethos h3 {
@@ -203,16 +212,22 @@ main > section {
   border-bottom: 2px solid var(--gray-500);
 }
 
+#club-ethos p {
+  margin-top: 1.2rem;
+  max-width: 50ch;
+}
+
 #club-ethos img {
+  /* margin: 4rem 0; */
+  width: 100%;
+  height: auto;
   border-radius: 50%;
 }
 
 /* meetup times */
 #times {
   display: grid;
-  grid-auto-flow: column;
-  height: 450px;
-  width: 100%;
+  grid-auto-flow: row;
   background: #ffff url("../images/dublin-city.webp") no-repeat center center;
   background-size: cover;
   text-align: center;
@@ -220,10 +235,11 @@ main > section {
 
 #times div {
   background-color: hsl(0, 0%, 15%, 0.6);
+  padding: 1rem;
 }
 
-#times div:not(:last-child) {
-  border-right: 10px solid white;
+#times > div:not(:last-child) {
+  border-bottom: 10px solid white;
 }
 
 #times h2,
@@ -244,8 +260,8 @@ main > section {
 
 /* footer */
 footer {
+  margin-top: auto;
   height: 250px;
-  margin-top: 50px;
   display: grid;
   place-items: center;
 }
@@ -272,9 +288,45 @@ footer i {
   width: 100%;
 }
 
+/*
+  **************************
+  Media queries styles 
+  ************************** */
+
 @media screen and (min-width: 768px) {
   #masonry-gallery {
     column-count: 3;
+  }
+
+  #club-ethos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: min-content 1fr;
+    column-gap: 3rem;
+    align-items: center;
+  }
+
+  #club-ethos div:nth-child(3) {
+    place-self: center;
+    margin: 0;
+  }
+
+  #club-ethos > div:last-of-type h3 {
+    text-align: right;
+  }
+
+  #club-ethos h2 {
+    grid-column: 1 / 4;
+  }
+
+  #times {
+    grid-auto-flow: column;
+    min-height: 400px;
+  }
+
+  #times div:not(:last-child) {
+    border-bottom: 0px;
+    border-right: 10px solid white;
   }
 }
 
