@@ -123,11 +123,10 @@ footer {
 
 /* header navigation */
 nav {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
   text-transform: capitalize;
   margin: 1rem;
+  text-align: center;
 }
 
 nav ul {
@@ -170,7 +169,7 @@ nav li a:hover {
 #hero-text {
   position: absolute;
   bottom: 30px;
-  right: 30px;
+  right: 0px;
   padding: 2rem 1rem;
   width: 300px;
   height: 200px;
@@ -185,7 +184,6 @@ nav li a:hover {
 }
 
 /* club-ethos  */
-
 /* 1st and second div child; second child */
 #club-ethos > div:not(:nth-child(3)) > div:nth-child(2) {
   margin-top: 6rem;
@@ -218,7 +216,6 @@ nav li a:hover {
 }
 
 #club-ethos img {
-  /* margin: 4rem 0; */
   width: 100%;
   height: auto;
   border-radius: 50%;
@@ -294,8 +291,19 @@ footer i {
   ************************** */
 
 @media screen and (min-width: 768px) {
+  nav {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* gallery page  */
   #masonry-gallery {
     column-count: 3;
+  }
+
+  /* home page */
+  #hero-text {
+    right: 30px;
   }
 
   #club-ethos {
