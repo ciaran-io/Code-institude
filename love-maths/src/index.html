@@ -5,10 +5,82 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="../dist/output.css" />
     <script src="./assets/js/script.js" defer></script>
   </head>
-  <body>
-    <h1 class="text-emerald-300">Hello World!</h1>
+  <body class="bg-gray-400">
+    <header class="container px-2 mt-4 mx-auto">
+      <nav class="flex flex-col items-center">
+        <img
+          src="./assets/images/logo.png"
+          alt="love maths logo"
+          width="77"
+          height="68"
+        />
+        <h1 class="text-orange-200 text-2xl">Love Maths</h1>
+      </nav>
+    </header>
+
+    <main class="mt-4 container mx-auto">
+      <div class="shadow-md p-4">
+        <!-- games area -->
+        <section>
+          <div id="games-area" class="flex justify-around">
+            <button>
+              Addition
+              <i class="fas fa-plus border p-2 rounded-lg border-white"> </i>
+            </button>
+            <button>
+              Subtract
+              <i class="fas fa-minus border p-2 rounded-lg border-white"> </i>
+            </button>
+            <button>
+              Multiply
+              <i class="fas fa-times border p-2 rounded-lg border-white"> </i>
+            </button>
+            <button>
+              Division
+              <i class="fas fa-divide border p-2 rounded-lg border-white"> </i>
+            </button>
+          </div>
+        </section>
+
+        <!-- Controls area -->
+        <section></section>
+
+        <section>
+          <div id="question-area">
+            <span>0</span>
+            <span>x</span>
+            <span>0</span>
+            <span>=</span>
+            <p>Enter Answer:</p>
+            <input type="number" />
+            <button>Submit Answer</button>
+          </div>
+        </section>
+      </div>
+
+      <!-- Score area -->
+      <section class="flex mt-8 gap-x-4">
+        <p>Correct answers <span id="id">0</span></p>
+        <p>Incorrect answers <span id="incorrct">0</span></p>
+      </section>
+    </main>
+    <!-- Game area -->
   </body>
 </html>
