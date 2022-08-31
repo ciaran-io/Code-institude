@@ -1,4 +1,4 @@
-let buttons = document.querySelectorAll("button");
+const buttons = document.querySelectorAll("button");
 const questionArea = document.getElementById("question-area");
 
 for (let button of buttons) {
@@ -6,13 +6,13 @@ for (let button of buttons) {
 
   button.addEventListener("click", () => {
     if (button.getAttribute("data-type") !== "submit") {
-      (gameType = button.getAttribute("data-type")), runGame(gameType);
+      gameType = button.getAttribute("data-type");
+      runGame(gameType);
     } else {
       checkAnswer();
     }
   });
 }
-
 // Start game with addition
 runGame("addition");
 
@@ -43,8 +43,9 @@ function checkAnswer() {
   let isCorrect = userAnswer === calculateAnswer[0];
 
   isCorrect
-    ? alert("Hey your'e answer is correct")
-    : alert(`You answered incorrectly. Please try again`);
+    ? (alert("Hey your'e answer is correct"), incrementScore())
+    : (alert(`You answered incorrectly. Please try again`),
+      incrementWrongAnswer());
 
   // runGame(calculateAnswer[1]);
 }
@@ -66,9 +67,27 @@ function calculateCorrectAnswer() {
   }
 }
 
-function incrementScore() {}
+/**
+ * Get the current score
+ * from DOM, and increases score by 1
+ */
+function incrementScore() {
+  let correctAnswersText = parseInt(
+    document.getElementById("score").textContent
+  );
+  document.getElementById("score").textContent = ++correctAnswersText;
+}
 
-function incrementWrongAnswer() {}
+/**
+ * Get the current score
+ * from DOM, and decreases score by 1
+ */
+function incrementWrongAnswer() {
+  let decrementScore = parseInt(
+    document.getElementById("incorrect").textContent
+  );
+  document.getElementById("incorrect").textContent = ++decrementScore;
+}
 
 function displayAdditionQuestion(operand1, operand2) {
   questionArea.children[0].textContent = operand1;
