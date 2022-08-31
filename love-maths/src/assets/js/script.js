@@ -9,6 +9,7 @@ for (let button of buttons) {
       gameType = button.getAttribute("data-type");
       runGame(gameType);
     } else {
+      // If submit button is clicked check users answer
       checkAnswer();
     }
   });
@@ -25,11 +26,22 @@ function runGame(gameType) {
   let num1 = Math.floor(Math.random() * 25) + 1;
   let num2 = Math.floor(Math.random() * 25) + 1;
 
-  if (gameType === "addition") {
-    displayAdditionQuestion(num1, num2);
-  } else {
-    alert(`Unknown game type: ${gameType}`);
-    throw Error(`Unknown game type: ${gameType}. Aborting!`);
+  switch (gameType) {
+    case "addition":
+      displayAdditionQuestion(num1, num2);
+      break;
+    case "subtract":
+      displaySubtractionQuestion(num1, num2);
+      break;
+    case "multiply":
+      displayMultiplyQuestion(num1, num2);
+      break;
+    case "division":
+      displayDivisionQuestion(num1, num2);
+      break;
+    default:
+      alert(`Unknown game type: ${gameType}`);
+      throw Error(`Unknown game type: ${gameType}. Aborting!`);
   }
 }
 
@@ -40,7 +52,7 @@ function runGame(gameType) {
 function checkAnswer() {
   let userAnswer = parseInt(questionArea.children[4].value);
   let calculateAnswer = calculateCorrectAnswer();
-  let isCorrect = userAnswer === calculateAnswer[0];
+  let isCorrect = userAnswer === calculateAnswer;
 
   isCorrect
     ? (alert("Hey your'e answer is correct"), incrementScore())
@@ -59,11 +71,18 @@ function calculateCorrectAnswer() {
   let operand2 = parseInt(questionArea.children[2].textContent);
   let operator = questionArea.children[1].textContent;
 
-  if (operator === "+") {
-    return [operand1 + operand2, "addition"];
-  } else {
-    alert(`Unknown game type: ${gameType}`);
-    throw Error(`Unknown game type: ${gameType}. Aborting!`);
+  switch (operator) {
+    case "+":
+      return operand1 + operand2;
+    case "-":
+      return operand1 - operand2;
+    case "*":
+      return operand1 * operand2;
+    case "/":
+      return Math.floor(operand1 / operand2);
+    default:
+      alert(`Unknown game type: ${gameType}`);
+      throw Error(`Unknown game type: ${gameType}. Aborting!`);
   }
 }
 
@@ -95,8 +114,24 @@ function displayAdditionQuestion(operand1, operand2) {
   questionArea.children[1].textContent = "+";
 }
 
-function displaySubtractionQuestion() {}
+function displaySubtractionQuestion(operand1, operand2) {
+  questionArea.children[0].textContent =
+    operand1 > operand2 ? operand1 : operand2;
+  questionArea.children[2].textContent =
+    operand1 > operand2 ? operand2 : operand1;
+  questionArea.children[1].textContent = "-";
+}
 
-function displayMultiplyQuestion() {}
+function displayMultiplyQuestion(operand1, operand2) {
+  questionArea.children[0].textContent = operand1;
+  questionArea.children[2].textContent = operand2;
+  questionArea.children[1].textContent = "x";
+}
 
-function displayDivisionQuestion() {}
+function displayDivisionQuestion(operand1, operand2) {
+  questionArea.children[0].textContent =
+    operand1 > operand2 ? operand1 : operand2;
+  questionArea.children[2].textContent =
+    operand1 > operand2 ? operand2 : operand1;
+  questionArea.children[1].textContent = "/";
+}
