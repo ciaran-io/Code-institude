@@ -6,17 +6,31 @@
   body {
     font-family: "Raleway", sans-serif;
   }
+
   #question-area span,
   #question-area input {
     @apply inline-block;
   }
+
   #question-area span {
     @apply text-2xl;
   }
+
   #question-area span:not(:nth-child(1)) {
     @apply pl-2;
   }
+
   #question-area input {
     @apply ml-4 rounded-sm;
   }
+}
+
+@layer components {
+  .button-game {
+    @apply flex items-center justify-between px-3 py-2 border rounded-md;
+  }
+}
+
+.icon-active {
+  @apply text-white bg-gray-300 border-0;
 }

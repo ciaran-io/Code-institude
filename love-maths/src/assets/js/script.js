@@ -1,19 +1,57 @@
 const buttons = document.querySelectorAll("button");
 const questionArea = document.getElementById("question-area");
+const operandText1 = questionArea.children[0];
+const operandText2 = questionArea.children[2];
+const operandSymbol = questionArea.children[1];
+const userInput = questionArea.children[4];
+let gameType;
 
-for (let button of buttons) {
-  let gameType;
+// Check answer if user presses enter key
+userInput.addEventListener("keydown", (event) =>
+  event.key === "Enter" ? checkAnswer() : null
+);
 
-  button.addEventListener("click", () => {
-    if (button.getAttribute("data-type") !== "submit") {
-      gameType = button.getAttribute("data-type");
-      runGame(gameType);
-    } else {
-      // If submit button is clicked check users answer
-      checkAnswer();
+/* 
+Sets game type or checks answer
+Highlight button icon
+reset input
+*/
+buttons.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    setGameType(button);
+    highlightActiveGame(event);
+    userInput.value = ""; // Reset input
+  });
+});
+
+/**
+ * Sets game type using selected button attribute value.
+ * Checks answer if button attribute is submit.
+ */
+function setGameType(button) {
+  if (button.getAttribute("data-type") === "submit") {
+    checkAnswer();
+  } else {
+    gameType = button.getAttribute("data-type");
+    runGame(gameType);
+  }
+}
+
+/**
+ * Add class to button icon when clicked.
+ * Remove all other button icons active class.
+ */
+function highlightActiveGame(event) {
+  buttons.forEach((button) => {
+    // If event.target is button toggle icon-active class
+    if (button.children[0]) {
+      button.classList[event.target === button ? "toggle" : "remove"](
+        "icon-active"
+      );
     }
   });
 }
+
 // Start game with addition
 runGame("addition");
 
@@ -22,6 +60,7 @@ runGame("addition");
  * and after the user's answer has been processed
  */
 function runGame(gameType) {
+  userInput.focus();
   // Creates two random numbers between 1 and 25
   let num1 = Math.floor(Math.random() * 25) + 1;
   let num2 = Math.floor(Math.random() * 25) + 1;
@@ -52,14 +91,17 @@ function runGame(gameType) {
 function checkAnswer() {
   let userAnswer = parseInt(questionArea.children[4].value);
   let calculateAnswer = calculateCorrectAnswer();
-  let isCorrect = userAnswer === calculateAnswer;
+  let isCorrect = userAnswer === calculateAnswer[0];
 
-  isCorrect
-    ? (alert("Hey your'e answer is correct"), incrementScore())
-    : (alert(`You answered incorrectly. Please try again`),
-      incrementWrongAnswer());
-
-  // runGame(calculateAnswer[1]);
+  if (isCorrect) {
+    alert("Hey your'e answer is correct");
+    incrementScore();
+    userInput.value = "";
+    runGame(calculateAnswer[1]);
+  } else {
+    alert(`You answered incorrectly. Please try again`);
+    incrementWrongAnswer();
+  }
 }
 
 /**
@@ -73,13 +115,13 @@ function calculateCorrectAnswer() {
 
   switch (operator) {
     case "+":
-      return operand1 + operand2;
+      return [operand1 + operand2, "addition"];
     case "-":
-      return operand1 - operand2;
+      return [operand1 - operand2, "subtract"];
     case "*":
-      return operand1 * operand2;
+      return [operand1 * operand2, "multiply"];
     case "/":
-      return Math.floor(operand1 / operand2);
+      return [operand1 / operand2, "division"];
     default:
       alert(`Unknown game type: ${gameType}`);
       throw Error(`Unknown game type: ${gameType}. Aborting!`);
@@ -109,29 +151,25 @@ function incrementWrongAnswer() {
 }
 
 function displayAdditionQuestion(operand1, operand2) {
-  questionArea.children[0].textContent = operand1;
-  questionArea.children[2].textContent = operand2;
-  questionArea.children[1].textContent = "+";
+  operandText1.textContent = operand1;
+  operandText2.textContent = operand2;
+  operandSymbol.textContent = "+";
 }
 
 function displaySubtractionQuestion(operand1, operand2) {
-  questionArea.children[0].textContent =
-    operand1 > operand2 ? operand1 : operand2;
-  questionArea.children[2].textContent =
-    operand1 > operand2 ? operand2 : operand1;
-  questionArea.children[1].textContent = "-";
+  operandText1.textContent = operand1 > operand2 ? operand1 : operand2;
+  operandText2.textContent = operand1 > operand2 ? operand2 : operand1;
+  operandSymbol.textContent = "-";
 }
 
 function displayMultiplyQuestion(operand1, operand2) {
-  questionArea.children[0].textContent = operand1;
-  questionArea.children[2].textContent = operand2;
-  questionArea.children[1].textContent = "x";
+  operandText1.textContent = operand1;
+  operandText2.textContent = operand2;
+  operandSymbol.textContent = "x";
 }
 
 function displayDivisionQuestion(operand1, operand2) {
-  questionArea.children[0].textContent =
-    operand1 > operand2 ? operand1 : operand2;
-  questionArea.children[2].textContent =
-    operand1 > operand2 ? operand2 : operand1;
-  questionArea.children[1].textContent = "/";
+  operandText1.textContent = operand1 * operand2;
+  operandText2.textContent = operand2;
+  operandSymbol.textContent = "/";
 }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Love Maths</title>
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
@@ -20,10 +20,15 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../dist/output.css" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="../public/favicon.ico"
+    />
     <script src="./assets/js/script.js" defer></script>
   </head>
-  <body class="bg-gray-400">
-    <header class="container px-2 mt-4 mx-auto">
+  <body>
+    <header class="container px-2 mx-auto mt-4">
       <nav class="flex flex-col items-center">
         <img
           src="./assets/images/logo.png"
@@ -31,54 +36,66 @@
           width="77"
           height="68"
         />
-        <h1 class="text-orange-200 text-2xl">Love Maths</h1>
+        <h1 class="text-2xl text-orange-200">Love Maths</h1>
       </nav>
     </header>
 
-    <main class="mt-4 container mx-auto">
-      <div class="shadow-md p-4">
-        <!-- games area -->
+    <main class="container max-w-4xl px-2 mx-auto mt-24">
+      <div class="p-4 rounded-md shadow-md">
+        <!-- Controls area -->
         <section>
-          <div id="games-area" class="flex justify-around">
-            <button>
+          <div
+            id="games-area"
+            class="gap-y-4 sm:gap-y-8 sm:gap-x-4 sm:grid-cols-2 grid"
+          >
+            <button data-type="addition" class="button-game">
               Addition
-              <i class="fas fa-plus border p-2 rounded-lg border-white"> </i>
+              <i class="fas fa-plus p-2 border border-gray-600 rounded-lg"> </i>
             </button>
-            <button>
+            <button data-type="subtract" class="button-game">
               Subtract
-              <i class="fas fa-minus border p-2 rounded-lg border-white"> </i>
+              <i class="fas fa-minus p-2 border border-gray-600 rounded-lg">
+              </i>
             </button>
-            <button>
+            <button data-type="multiply" class="button-game">
               Multiply
-              <i class="fas fa-times border p-2 rounded-lg border-white"> </i>
+              <i class="fas fa-times p-2 border border-gray-600 rounded-lg">
+              </i>
             </button>
-            <button>
+            <button data-type="division" class="button-game">
               Division
-              <i class="fas fa-divide border p-2 rounded-lg border-white"> </i>
+              <i class="fas fa-divide p-2 border border-gray-600 rounded-lg">
+              </i>
             </button>
           </div>
         </section>
 
-        <!-- Controls area -->
-        <section></section>
-
-        <section>
+        <section class="place-items-center grid mt-12 text-center">
           <div id="question-area">
             <span>0</span>
             <span>x</span>
             <span>0</span>
             <span>=</span>
-            <p>Enter Answer:</p>
-            <input type="number" />
-            <button>Submit Answer</button>
+            <input
+              class="p-1 mt-4 border border-gray-600 rounded-md"
+              type="number"
+            />
           </div>
+          <button
+            class="px-4 py-2 mt-8 text-white bg-gray-700 rounded-md"
+            data-type="submit"
+          >
+            Submit Answer
+          </button>
         </section>
       </div>
 
       <!-- Score area -->
-      <section class="flex mt-8 gap-x-4">
-        <p>Correct answers <span id="id">0</span></p>
-        <p>Incorrect answers <span id="incorrct">0</span></p>
+      <section class="gap-x-4 flex flex-wrap justify-center mt-8">
+        <p>Correct answers <span id="score" class="text-green-700">0</span></p>
+        <p>
+          Incorrect answers <span id="incorrect" class="text-red-400">0</span>
+        </p>
       </section>
     </main>
     <!-- Game area -->
