@@ -1,24 +1,18 @@
-import { defineNuxtConfig } from 'nuxt'
-
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
-export default defineNuxtConfig({
+export default {
   typescript: {
-    shim: false
-  }
+    shim: false,
+  },
+  css: ['~/assets/css/main.css'],
   // Src directory
   srcDir: 'src/',
   // Nuxt modules
-  modules: ['@nuxt/image', 'nuxt-icon'],
-   // Nuxt build
-  build: {
-    postcss: {
-      postcssOptions: {
-        plugins: {
-          tailwindcss: {},
-          'tailwindcss/nesting': {},
-          autoprefixer: {},
-        },
-      },
-    },
+  modules: ['nuxt-icon', '@nuxtjs/tailwindcss'],
+  // Nuxt build
+  tailwindcss: {
+    cssPath: '~/assets/css/main.css',
+    config: '~~/tailwind.config.js',
+    exposeConfig: false,
+    viewer: false,
   },
-})
+}
