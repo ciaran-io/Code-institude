@@ -8,7 +8,7 @@
       name="entypo-social:facebook"
   /></nuxt-link>
   <nuxt-link
-    to="https://www.instgram.com/"
+    to="https://www.instagram.com/"
     target="_blank"
   >
     <Icon
