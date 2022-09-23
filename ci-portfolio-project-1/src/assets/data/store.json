@@ -1,0 +1,96 @@
+{
+  "treatments": [
+    {
+      "id": 1,
+      "name": "aromatherapy full body massage",
+      "duration": 1,
+      "price": 65,
+      "benefits": ["helps sleep", "Boots mood", "Improves concentration"],
+      "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit.  Quidem ex doloremque nostrum, consectetur asperiores unde\n exercitationem architecto temporibus corporis! Aspernatur expedita voluptatibus voluptate architecto commodi provident asperiores iure iusto obcaecati?"
+    },
+    {
+      "id": 2,
+      "name": "reflexology treatment",
+      "duration": 1,
+      "price": 55,
+      "benefits": ["helps sleep", "Boots mood", "Improves concentration"],
+      "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit.  Quidem ex doloremque nostrum, consectetur asperiores unde\n exercitationem architecto temporibus corporis! Aspernatur expedita voluptatibus voluptate architecto commodi provident asperiores iure iusto obcaecati?"
+    },
+    {
+      "id": 3,
+      "name": "reiki healing",
+      "duration": 1,
+      "price": 55,
+      "benefits": ["Helps sleep", "Boosts mood", "Improves concentration"],
+      "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit.  Quidem ex doloremque nostrum, consectetur asperiores unde\n exercitationem architecto temporibus corporis! Aspernatur expedita voluptatibus voluptate architecto commodi provident asperiores iure iusto obcaecati?"
+    },
+    {
+      "id": 4,
+      "name": "full aromatherapy including reflexology",
+      "duration": 1.5,
+      "price": 80,
+      "benefits": ["Helps sleep", "Boots mood", "Improves concentration"],
+      "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit.  Quidem ex doloremque nostrum, consectetur asperiores unde\n exercitationem architecto temporibus corporis! Aspernatur expedita voluptatibus voluptate architecto commodi provident asperiores iure iusto obcaecati?"
+    },
+    {
+      "id": 5,
+      "name": "two hour deluxe combined treatments of your choice",
+      "duration": 2,
+      "price": 100,
+      "benefits": ["Helps sleep", "Boots mood", "Improves concentration"],
+      "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit.  Quidem ex doloremque nostrum, consectetur asperiores unde\n exercitationem architecto temporibus corporis! Aspernatur expedita voluptatibus voluptate architecto commodi provident asperiores iure iusto obcaecati?"
+    }
+  ],
+  "conditions": [
+    {
+      "title": "Chronic sleep disorders",
+      "text": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words ",
+      "icon": "material-symbols:hotel-outline-rounded",
+      "altText": "bed icon"
+    },
+    {
+      "title": "Irritation, stress & mood",
+      "text": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words ",
+      "icon": "material-symbols:self-improvement",
+      "altText": "meditate icon"
+    },
+    {
+      "title": "Skin problems & swelling",
+      "text": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words ",
+      "icon": "material-symbols:front-hand",
+      "altText": "hand icon"
+    },
+    {
+      "title": "Mental Health",
+      "text": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words ",
+      "icon": "fa6-solid:brain",
+      "altText": "mind icon"
+    }
+  ],
+  "reviews": [
+    {
+      "name": "helen",
+      "title": "aromatherapy massage and reiki healing",
+      "review": "I am a client of Aishling and  can recommend her , her treatments and her healing geodesic dome very highly . She is a lovely person - very professional and understanding and is very passionate about her  therapies and her clients . It is a wonderful little place to switch off and relax and to be pampered."
+    },
+    {
+      "name": "george",
+      "title": "aromatherapy massage and reiki healing",
+      "review": "I am a client of Aishling and  can recommend her , her treatments and her healing geodesic dome very highly . She is a lovely person - very professional and understanding and is very passionate about her  therapies and her clients.It is a wonderful little place to switch off and relax and to be pampered."
+    },
+    {
+      "name": "sam",
+      "title": "aromatherapy massage and reiki healing",
+      "review": "I am a client of Aishling and  can recommend her , her treatments and her healing geodesic dome very highly . She is a lovely person - very professional and understanding and is very passionate about her  therapies and her clients . It is a wonderful little place to switch off and relax and to be pampered"
+    }
+  ],
+  "contactInformation": {
+    "phone": "+35380000000",
+    "email": "info@freyja-healing.email",
+    "address": "123 healing Street Suite ireland",
+    "opening hours": {
+      "day": "Monday - Saturday",
+      "hours": "9:00 AM - 5:00 PM"
+    }
+  }
+}
