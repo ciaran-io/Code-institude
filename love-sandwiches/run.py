@@ -37,11 +37,14 @@ def get_sales_data():
 
 
 def validate_data(values):
-    """
+    """Validates user input.
+
+    Loop through values and convert to type int.
     Validate entered input is length of 6.
     Raise error if incorrect
     """
     try:
+        [int(value) for value in values]
         if len(values) != 6:
             raise ValueError(
                 f"Please enter exactly 6 values, you provided {len(values)}"
