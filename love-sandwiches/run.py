@@ -24,8 +24,14 @@ data = sales.get_all_values()
 
 
 def get_sales_data():
-    """
-    Get sales figures input from user
+    """Get sales figures input from user.
+
+    Run program until user inputs correct data.
+
+    Returns
+    -------
+    list
+        List of user input data
     """
     while True:
         print("Enter sales data from previous market")
@@ -61,4 +67,17 @@ def validate_data(values):
     return True
 
 
+def update_sales_workSheet(data):
+    """Update sales worksheet.
+
+    Add new row with list data provided.
+    """
+    print("Updating sales work sheet...\n")
+    sales_worksheet = SHEET.worksheet("sales")
+    sales_worksheet.append_row(data)
+    print("Sales worksheet updated successfully.\n")
+
+
 data = get_sales_data()
+sales_data = [int(num) for num in data]
+update_sales_workSheet(sales_data)
