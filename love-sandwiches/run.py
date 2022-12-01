@@ -48,10 +48,10 @@ def get_sales_data():
     return sales_data
 
 
-def validate_data(values):
+def validate_data(values: list):
     """Validates user input.
 
-    Loop through values and convert to type int.
+    Loop through values and convert to type int.\n
     Validate entered input is length of 6.
     Raise error if incorrect
     """
@@ -68,7 +68,7 @@ def validate_data(values):
     return True
 
 
-def update_sales_workSheet(data):
+def update_sales_workSheet(data: list):
     """Update sales worksheet.
 
     Add new row with list data provided.
@@ -79,7 +79,7 @@ def update_sales_workSheet(data):
     print("Sales worksheet updated successfully.\n")
 
 
-def calculate_surplus_data(sales_row):
+def calculate_surplus_data(sales_row: list):
     """Compare sales with stock and calculate the surplus for each item type.
 
     The surplus is defined as the sales figure subtracted from the stock:
