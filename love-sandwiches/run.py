@@ -20,8 +20,20 @@ SHEET = GSPREAD_CLIENT.open("love_sandwiches")
 
 # Access the specific sheet
 sales = SHEET.worksheet("sales")
-
 data = sales.get_all_values()
+
+
+def get_last_5_entries_sales():
+    """
+    Return last entry sales from each column
+    in sales worksheet
+    """
+    sales = SHEET.worksheet("sales")
+    columns = []
+    for ind in range(1, 7):  # sandwich sales category length
+        column = sales.col_values(ind)
+        columns.append(column[-5:])  # slice last five in list
+    return columns
 
 
 def get_sales_data():
@@ -112,4 +124,5 @@ def main():
 
 
 print("Welcome to Love Sandwiches Data Automation")
-main()
+# main()
+sales_columns = get_last_5_entries_sales()
