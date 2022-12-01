@@ -23,6 +23,19 @@ sales = SHEET.worksheet("sales")
 data = sales.get_all_values()
 
 
+def get_average_sales(data: list):
+    """
+    Get average sales from each category column
+    """
+    print("Calculating stock data please wait...\n")
+    new_stock_data = []
+    for column in data:
+        int_column = [int(num) for num in column]
+        average = sum(int_column) / len(int_column)
+        new_stock_data.append(round(average))
+    return new_stock_data
+
+
 def get_last_5_entries_sales():
     """
     Return last entry sales from each column
@@ -121,8 +134,10 @@ def main():
     update_worksheet(sales_data, "sales")
     new_surplus_data = calculate_surplus_data(sales_data)
     update_worksheet(new_surplus_data, "surplus")
+    sales_columns = get_last_5_entries_sales()
+    stock_data = get_average_sales(sales_columns)
+    update_worksheet(stock_data, "stock")
 
 
 print("Welcome to Love Sandwiches Data Automation")
-# main()
-sales_columns = get_last_5_entries_sales()
+main()
